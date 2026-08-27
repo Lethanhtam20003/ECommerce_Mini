@@ -1,6 +1,6 @@
-@AuthService_HostAddress = http://localhost:5070
+@AuthService_HostAddress = http://localhost:7291
 
-GET {{AuthService_HostAddress}}/weatherforecast/
+GET {{AuthService_HostAddress}}/v1/api/user
 Accept: application/json
 
 ###

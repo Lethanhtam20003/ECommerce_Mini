@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="13.5.2" />
-    <PackageReference Include="Aspire.Hosting.Redis" Version="13.5.2" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="13.5.0" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.DbGate" Version="13.5.0" />
   </ItemGroup>
 
 </Project>
