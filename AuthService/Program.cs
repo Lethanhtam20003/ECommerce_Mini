@@ -14,6 +14,7 @@ builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddOpenApi();
 builder.AddServiceDefaults();
 builder.Services.AddControllers();
+
 builder.AddNpgsqlDbContext<AuthDbContext>("authdb");
 
 var app = builder.Build();
@@ -32,9 +33,12 @@ if (app.Environment.IsDevelopment())
     var dbContext = scope.ServiceProvider.GetRequiredService<AuthDbContext>();
     await dbContext.Database.MigrateAsync();
 }
-
+// Kích hoạt Exception Handler Middleware
+app.UseExceptionHandler();
 app.UseHttpsRedirection();
 app.MapDefaultEndpoints();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

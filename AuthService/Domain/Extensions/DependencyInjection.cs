@@ -1,6 +1,7 @@
 ﻿
 using AuthService.Application.Common.Behaviors;
 using AuthService.Application.Interface;
+using AuthService.Infrastructure.Exceptions;
 using AuthService.Infrastructure.Persistence.Repositories;
 using AuthService.Infrastructure.Services;
 using FluentValidation;
@@ -34,6 +35,10 @@ namespace AuthService.Domain.Extensions
             services.AddScoped<IJwtTokenService, JwtTokenService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            // Đăng ký IExceptionHandler
+            services.AddExceptionHandler<GlobalExceptionHandler>();
+            services.AddProblemDetails(); // Hỗ trợ định dạng lỗi RFC 7807
 
             return services;
         }
