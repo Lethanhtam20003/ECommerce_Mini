@@ -1,4 +1,4 @@
-using AuthService.Domain.Extensions;
+using AuthService.Application.Extensions;
 using AuthService.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 

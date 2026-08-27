@@ -1,4 +1,4 @@
-﻿namespace AuthService.Application.Common
+﻿namespace AuthService.Application.Dtos.common
 {
     public record ApiError(string Code, string Message, string? Details = null);
 

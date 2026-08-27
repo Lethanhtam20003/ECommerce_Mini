@@ -1,4 +1,4 @@
-﻿using AuthService.Application.Common;
+﻿using AuthService.Application.Dtos.common;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;

@@ -4,7 +4,7 @@ using AuthService.Domain.Common.Enums;
 using AuthService.Domain.Entities;
 using MediatR;
 
-namespace AuthService.Application.Auth.Commands.Register
+namespace AuthService.Application.Features.Auth.Commands.Register
 {
     public class RegisterCommandHandler: IRequestHandler<RegisterCommand, Result<RegisterResponse>>
     {

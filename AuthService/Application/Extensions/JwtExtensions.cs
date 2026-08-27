@@ -4,7 +4,7 @@ using AuthService.Infrastructure.Persistence.Authentication;
 using AuthService.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-namespace AuthService.Domain.Extensions
+namespace AuthService.Application.Extensions
 {
     public static class JwtExtensions
     {

@@ -1,13 +1,13 @@
-﻿
-using AuthService.Application.Common.Behaviors;
+﻿using AuthService.Application.Common.Behaviors;
 using AuthService.Application.Interface;
 using AuthService.Infrastructure.Exceptions;
 using AuthService.Infrastructure.Persistence.Repositories;
+using AuthService.Infrastructure.Security;
 using AuthService.Infrastructure.Services;
 using FluentValidation;
 using System.Reflection;
 
-namespace AuthService.Domain.Extensions
+namespace AuthService.Application.Extensions
 {
     public static class DependencyInjection
     {

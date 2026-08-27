@@ -1,10 +1,11 @@
-﻿using AuthService.Application.Common;
+﻿using AuthService.Application.Dtos.common;
+using AuthService.Domain.Common;
 using AuthService.Domain.Common.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace AuthService.Domain.Common
+namespace AuthService.Controllers.Common
 {
     [ApiController]
     [Route("api/v1/[controller]")]

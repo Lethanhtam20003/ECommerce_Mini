@@ -2,7 +2,7 @@
 using FluentValidation;
 using MediatR;
 
-namespace AuthService.Application.Auth.Commands.Register
+namespace AuthService.Application.Features.Auth.Commands.Register
 {
     public record RegisterCommand(string Email, string Password) : IRequest<Result<RegisterResponse>>;
     public record RegisterResponse(string AccessToken, string Email, string Role);
