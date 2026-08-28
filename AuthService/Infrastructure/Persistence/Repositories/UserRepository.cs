@@ -23,6 +23,14 @@ namespace AuthService.Infrastructure.Persistence.Repositories
                 .FirstOrDefaultAsync(u => u.Name == email,cancellationToken) is not null;
         }
 
-      
+        public async Task<User?> GetUserAsync(string email, bool tracking, CancellationToken cancellationToken)
+        {
+            var query = _context.Users.AsQueryable();
+            if (!tracking)
+            {
+                query = query.AsNoTracking();
+            }
+            return await query.FirstOrDefaultAsync(u => u.Name == email, cancellationToken);
+        }
     }
 }

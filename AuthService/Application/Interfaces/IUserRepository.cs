@@ -6,5 +6,6 @@ namespace AuthService.Application.Interface
     {
         Task AddAsync(User user);
         Task<bool> ExistsByEmailAsync(string email, CancellationToken cancellationToken);
+        Task<User?> GetUserAsync(string email, bool tracking, CancellationToken cancellationToken);
     }
 }
