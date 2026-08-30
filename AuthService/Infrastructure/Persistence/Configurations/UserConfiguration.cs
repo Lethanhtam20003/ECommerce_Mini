@@ -15,10 +15,15 @@ namespace AuthService.Infrastructure.Persistence.Configurations
                 .HasColumnName("id")
                 .HasDefaultValueSql("gen_random_uuid()"); // Tự động sinh GUID khi thêm mới
 
-            builder.Property(e => e.Name)
+            builder.Property(e => e.UserName)
                 .HasColumnName("name")
                 .IsRequired()
                 .HasMaxLength(100);
+
+            builder.Property(e => e.Email)
+               .HasColumnName("email")
+               .IsRequired()
+               .HasMaxLength(100);
 
             builder.Property(u => u.PasswordHash)
                .HasColumnName("password_hash");

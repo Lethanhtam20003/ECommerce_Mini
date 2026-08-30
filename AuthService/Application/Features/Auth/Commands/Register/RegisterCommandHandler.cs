@@ -30,17 +30,23 @@ namespace AuthService.Application.Features.Auth.Commands.Register
             {
                 return Result<RegisterResponse>.Failure(new Error("User.Conflict", "Email đã tồn tại.", ErrorType.Conflict));
             }
+            // kiểm tra username tồn tại
+            if (await _userRepository.ExistsByUserNameAsync(request.UserName, cancellationToken))
+            {
+                return Result<RegisterResponse>.Failure(new Error("User.Conflict", "Username đã tồn tại.", ErrorType.Conflict));
+            }
+
             // hash password
             var hashedPassword = _passwordHasher.HashPassword(request.Password);
            
             // thêm user vào database
-            User user = User.Create(request.Email, hashedPassword);
+            User user = User.Create(request.UserName, request.Email, hashedPassword);
             await _userRepository.AddAsync(user);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             // gentoken
             var token = _jwtTokenService.GenerateToken(user);
 
-            return Result<RegisterResponse>.Success(new RegisterResponse(token,request.Email, "user"));
+            return Result<RegisterResponse>.Success(new RegisterResponse(token,request.UserName, "user"));
         }
     }
 }

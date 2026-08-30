@@ -26,6 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/openapi/v1.json", "AuthService v1");
+        options.RoutePrefix = string.Empty;
     }); // Giao diện truy cập tại /swagger
 
     // Auto-migration trong môi trường Development

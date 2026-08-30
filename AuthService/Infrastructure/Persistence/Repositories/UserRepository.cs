@@ -20,7 +20,14 @@ namespace AuthService.Infrastructure.Persistence.Repositories
         {
             return await _context.Set<User>()
                 .AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Name == email,cancellationToken) is not null;
+                .FirstOrDefaultAsync(u => u.Email == email,cancellationToken) is not null;
+        }
+
+        public async Task<bool> ExistsByUserNameAsync(string userName, CancellationToken cancellationToken)
+        {
+            return await _context.Set<User>()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.UserName == userName, cancellationToken) is not null;
         }
 
         public async Task<User?> GetUserAsync(string email, bool tracking, CancellationToken cancellationToken)
@@ -30,7 +37,7 @@ namespace AuthService.Infrastructure.Persistence.Repositories
             {
                 query = query.AsNoTracking();
             }
-            return await query.FirstOrDefaultAsync(u => u.Name == email, cancellationToken);
+            return await query.FirstOrDefaultAsync(u => u.Email == email, cancellationToken);
         }
     }
 }
